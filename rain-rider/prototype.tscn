@@ -1,8 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://d04frywksan5v"]
+[gd_scene load_steps=7 format=3 uid="uid://d04frywksan5v"]
 
 [ext_resource type="PackedScene" uid="uid://dlckd617chqdo" path="res://player.tscn" id="1_gxbh7"]
+[ext_resource type="Script" uid="uid://c4y2stomhbby2" path="res://bomba.gd" id="2_883nb"]
+[ext_resource type="Texture2D" uid="uid://d5e1bpsmiwk3" path="res://asstes/bomba.png" id="3_7fmhn"]
+[ext_resource type="AudioStream" uid="uid://7t4rewih34sk" path="res://asstes/bomba-explosion.ogg" id="4_7fmhn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbk3n"]
+size = Vector2(7.29066, 38.7695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fmhn"]
 
 [node name="Prototype" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_gxbh7")]
 position = Vector2(225, 133)
+
+[node name="bomba" type="CharacterBody2D" parent="."]
+position = Vector2(268, 140)
+script = ExtResource("2_883nb")
+
+[node name="Sprite2D" type="Sprite2D" parent="bomba"]
+position = Vector2(0, -2)
+texture = ExtResource("3_7fmhn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bomba"]
+position = Vector2(0.5, -1.5)
+scale = Vector2(0.960133, 0.283728)
+shape = SubResource("RectangleShape2D_mbk3n")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="bomba"]
+stream = ExtResource("4_7fmhn")
+
+[node name="bomba2" type="Area2D" parent="."]
+position = Vector2(267, 102)
+
+[node name="Sprite2D" type="Sprite2D" parent="bomba2"]
+texture = ExtResource("3_7fmhn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bomba2"]
+shape = SubResource("RectangleShape2D_7fmhn")
