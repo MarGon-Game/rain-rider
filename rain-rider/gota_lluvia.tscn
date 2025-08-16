@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceekk172cd8bn"]
+
+[ext_resource type="Texture2D" uid="uid://ds6hotqd773ka" path="res://asstes/gota_lluvia.png" id="1_62pgi"]
+[ext_resource type="Script" uid="uid://8klcyni1od2i" path="res://gota_lluvia.gd" id="1_h6bty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6bty"]
+radius = 5.0
+
+[node name="Gota" type="Area2D"]
+script = ExtResource("1_h6bty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_62pgi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h6bty")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

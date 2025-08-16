@@ -25,6 +25,16 @@ func ProcessMovement() -> void:
 	pass
 	move_and_slide()
 
+func DecreaseLive(amount : int) -> void:
+	lives -= amount
+	if lives <= 0:
+		lives = 0
+		currentState = PlayerStates.DEAD
+	pass
+
+func IsDead() -> bool:
+	return lives == 0
+
 func PlayAnimations() -> void:
 	if direction.x < 0.0:
 		animation.flip_h = true

@@ -44,8 +44,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
-size = Vector2(21, 15)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+radius = 5.5
+height = 24.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
@@ -53,8 +54,8 @@ script = ExtResource("1_onrkg")
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"andando"
-frame_progress = 0.462407
+frame_progress = 0.659621
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 7.5)
-shape = SubResource("RectangleShape2D_1jxqw")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_onrkg")
