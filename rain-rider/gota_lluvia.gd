@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	var current_time = Time.get_ticks_msec()
 	var elapsed_time = (current_time - timeStart) / 1000.0
 	if elapsed_time >= lifeTime - 1 :
-		print("liberar gota")
+		#print("liberar gota")
 		queue_free()
 	pass
 

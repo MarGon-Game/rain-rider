@@ -54,7 +54,7 @@ script = ExtResource("1_onrkg")
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"andando"
-frame_progress = 0.458104
+frame_progress = 0.915536
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
