@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d04frywksan5v"]
+[gd_scene load_steps=3 format=3 uid="uid://d04frywksan5v"]
 
 [ext_resource type="PackedScene" uid="uid://dlckd617chqdo" path="res://player.tscn" id="1_gxbh7"]
+[ext_resource type="PackedScene" uid="uid://ceekk172cd8bn" path="res://gota_lluvia.tscn" id="2_vo8sw"]
 
 [node name="Prototype" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_gxbh7")]
 position = Vector2(225, 133)
+
+[node name="Gota" parent="." instance=ExtResource("2_vo8sw")]
+position = Vector2(422, -13)
