@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3y3k40wrc33m"]
+[gd_scene load_steps=4 format=3 uid="uid://d3y3k40wrc33m"]
 
+[ext_resource type="Script" uid="uid://dux11b7xstnqt" path="res://creditos.gd" id="1_7flbs"]
 [ext_resource type="Texture2D" uid="uid://bejeuemvpgkpl" path="res://asstes/Fondo-Menú.png" id="1_ilafw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ilafw"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7flbs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -36,10 +38,10 @@ text = "
 CREDITOS:
 
 ARTE:
-MarGon, Catasteria.
+MarGon, Catasteria, Esnouman.
 
 PROGRAMACION:
-MarGon, Catasteria.
+MarGon, Catasteria, ElSedim.
 
 MUSICA:
 Catasteria.
@@ -48,3 +50,14 @@ Catasteria.
 label_settings = SubResource("LabelSettings_ilafw")
 horizontal_alignment = 1
 vertical_alignment = 3
+
+[node name="atras" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 32.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "<"
+
+[connection signal="pressed" from="atras" to="." method="_on_atras_pressed"]

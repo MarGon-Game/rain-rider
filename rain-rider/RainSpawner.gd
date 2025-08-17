@@ -34,3 +34,7 @@ func _process(delta: float) -> void:
 		lastSpawn = current_time
 		spawn_object_in_area()
 	pass
+
+
+func _on_regresar_pressed() -> void:
+	get_tree().change_scene_to_file("res://menú.tscn")
