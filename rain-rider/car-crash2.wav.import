@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dnlq6etld6hyk"
-path="res://.godot/imported/car-crash.wav-4e27c9eab9c2b2fcb2dced8c9c436fa7.sample"
+uid="uid://deblrmdtmh00f"
+path="res://.godot/imported/car-crash2.wav-6477784e934854ac7b4ad17bb97a3589.sample"
 
 [deps]
 
-source_file="res://asstes/car-crash.wav"
-dest_files=["res://.godot/imported/car-crash.wav-4e27c9eab9c2b2fcb2dced8c9c436fa7.sample"]
+source_file="res://car-crash2.wav"
+dest_files=["res://.godot/imported/car-crash2.wav-6477784e934854ac7b4ad17bb97a3589.sample"]
 
 [params]
 
