@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://lt5bhhom3cxt"]
+[gd_scene load_steps=21 format=3 uid="uid://lt5bhhom3cxt"]
 
 [ext_resource type="PackedScene" uid="uid://dlckd617chqdo" path="res://player.tscn" id="1_ey04a"]
 [ext_resource type="Script" uid="uid://c4y2stomhbby2" path="res://bomba.gd" id="2_kyosl"]
 [ext_resource type="Texture2D" uid="uid://d5e1bpsmiwk3" path="res://asstes/bomba.png" id="3_ann6v"]
 [ext_resource type="AudioStream" uid="uid://7t4rewih34sk" path="res://asstes/bomba-explosion.ogg" id="4_7j1bl"]
+[ext_resource type="Script" uid="uid://bbsjy1iqrrlal" path="res://coche_horizontal.gd" id="5_7j1bl"]
 [ext_resource type="Texture2D" uid="uid://usgauxgb1ugh" path="res://asstes/car horizontal.png" id="5_ann6v"]
+[ext_resource type="AudioStream" uid="uid://dt3xonrhdiect" path="res://bombaActiva.wav" id="5_cqecd"]
 [ext_resource type="AudioStream" uid="uid://dnlq6etld6hyk" path="res://asstes/car-crash.wav" id="6_7j1bl"]
+[ext_resource type="AudioStream" uid="uid://d322ao6j4c3ay" path="res://asstes/claxon.wav" id="8_o5vx5"]
+[ext_resource type="Script" uid="uid://dq7ktvt6ok381" path="res://coche_vertical.gd" id="10_cqecd"]
+[ext_resource type="Texture2D" uid="uid://cy5x22e2fvhew" path="res://asstes/carro vertical.png" id="11_dvs1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_883nb"]
 size = Vector2(9, 13)
@@ -13,19 +18,33 @@ size = Vector2(9, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbk3n"]
 size = Vector2(7.29066, 38.7695)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ann6v"]
-size = Vector2(56, 20)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mpac7"]
+radius = 16.0312
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j1bl"]
-size = Vector2(61, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5vx5"]
+size = Vector2(55, 20)
 
-[node name="Prototype" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn24p"]
+size = Vector2(61, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpac7"]
+size = Vector2(38, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2d1xr"]
+size = Vector2(20, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctugs"]
+size = Vector2(33.7477, 56.5803)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jarb"]
+
+[node name="Obstaculos" type="Node2D"]
 
 [node name="player" parent="." groups=["jugador"] instance=ExtResource("1_ey04a")]
-position = Vector2(225, 133)
+position = Vector2(186, 184)
 
 [node name="Bomba" type="StaticBody2D" parent="."]
-position = Vector2(275, 138)
+position = Vector2(333, 136)
 script = ExtResource("2_kyosl")
 
 [node name="Area2D" type="Area2D" parent="Bomba"]
@@ -47,22 +66,83 @@ texture = ExtResource("3_ann6v")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Bomba"]
 stream = ExtResource("4_7j1bl")
 
-[node name="CocheHorizontal" type="StaticBody2D" parent="."]
+[node name="Area2D2" type="Area2D" parent="Bomba"]
+scale = Vector2(3.54, 3.58371)
 
-[node name="Sprite2D" type="Sprite2D" parent="CocheHorizontal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bomba/Area2D2"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_mpac7")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Bomba"]
+scale = Vector2(1.01459, 0.982609)
+stream = ExtResource("5_cqecd")
+
+[node name="cocheHorizontal" type="CharacterBody2D" parent="."]
+position = Vector2(72, 311)
+script = ExtResource("5_7j1bl")
+
+[node name="Sprite2D" type="Sprite2D" parent="cocheHorizontal"]
 position = Vector2(1, -16)
 texture = ExtResource("5_ann6v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CocheHorizontal"]
-shape = SubResource("RectangleShape2D_ann6v")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cocheHorizontal"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_o5vx5")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CocheHorizontal"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="cocheHorizontal"]
 stream = ExtResource("6_7j1bl")
 
-[node name="Area2D" type="Area2D" parent="CocheHorizontal"]
+[node name="Area2D" type="Area2D" parent="cocheHorizontal"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CocheHorizontal/Area2D"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_7j1bl")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cocheHorizontal/Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_qn24p")
+
+[node name="Area2D2" type="Area2D" parent="cocheHorizontal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cocheHorizontal/Area2D2"]
+position = Vector2(47, 0.5)
+shape = SubResource("RectangleShape2D_mpac7")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="cocheHorizontal"]
+stream = ExtResource("8_o5vx5")
+
+[node name="cocheVertical" type="CharacterBody2D" parent="."]
+position = Vector2(255, 133)
+script = ExtResource("10_cqecd")
+
+[node name="Sprite2D" type="Sprite2D" parent="cocheVertical"]
+position = Vector2(14, 1)
+texture = ExtResource("11_dvs1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cocheVertical"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_2d1xr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="cocheVertical"]
+stream = ExtResource("6_7j1bl")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="cocheVertical"]
+stream = ExtResource("8_o5vx5")
+
+[node name="Area2D" type="Area2D" parent="cocheVertical"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cocheVertical/Area2D"]
+position = Vector2(-1, 1.5)
+rotation = -3.14159
+scale = Vector2(0.770422, -1.07811)
+shape = SubResource("RectangleShape2D_ctugs")
+
+[node name="Area2D2" type="Area2D" parent="cocheVertical"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cocheVertical/Area2D2"]
+position = Vector2(-1, 49)
+scale = Vector2(1.88, 1.88)
+shape = SubResource("RectangleShape2D_0jarb")
 
 [connection signal="body_entered" from="Bomba/Area2D" to="Bomba" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Bomba/Area2D2" to="Bomba" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="cocheHorizontal/Area2D" to="cocheHorizontal" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="cocheHorizontal/Area2D2" to="cocheHorizontal" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="cocheVertical/Area2D" to="cocheVertical" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="cocheVertical/Area2D2" to="cocheVertical" method="_on_area_2d_2_body_entered"]
