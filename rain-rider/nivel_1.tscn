@@ -338,6 +338,7 @@ text = "<"
 script = ExtResource("4_m2gv8")
 
 [node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("area_2d", "collision_shape")]
+visible = false
 position = Vector2(589, 191)
 script = ExtResource("3_2lask")
 area_2d = NodePath("Area2D")
