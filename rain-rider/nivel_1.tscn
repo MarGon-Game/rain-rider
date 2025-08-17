@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bmb3hdfn57k4v"]
+[gd_scene load_steps=22 format=4 uid="uid://bmb3hdfn57k4v"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_eciuy"]
 [ext_resource type="Script" uid="uid://b1qskfaxtld1o" path="res://RainSpawner.gd" id="3_2lask"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dlckd617chqdo" path="res://player.tscn" id="7_1t0n7"]
 [ext_resource type="Script" uid="uid://bt5piy1u470ts" path="res://camera_2d.gd" id="8_3im4l"]
 [ext_resource type="Script" uid="uid://c4y2stomhbby2" path="res://bomba.gd" id="9_2n6wq"]
+[ext_resource type="Script" uid="uid://b0tvx7h05bufa" path="res://path_follow_2d.gd" id="9_o46bk"]
 [ext_resource type="Texture2D" uid="uid://d5e1bpsmiwk3" path="res://asstes/bomba.png" id="10_7h30g"]
 [ext_resource type="AudioStream" uid="uid://7t4rewih34sk" path="res://asstes/bomba-explosion.ogg" id="11_3rqyh"]
 [ext_resource type="AudioStream" uid="uid://dt3xonrhdiect" path="res://bombaActiva.wav" id="12_p7e7r"]
@@ -321,9 +322,6 @@ sources/0 = SubResource("TileSetAtlasSource_m2gv8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_320mp"]
 size = Vector2(1028, 249)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls2kf"]
-size = Vector2(38, 35)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgbmw"]
 size = Vector2(9, 13)
 
@@ -332,6 +330,15 @@ size = Vector2(7.29066, 38.7695)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5jqlr"]
 radius = 16.0312
+
+[sub_resource type="Curve2D" id="Curve2D_yyrpj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 480, 0.560768, -0.779893, -0.560768, 0.779893, 401, 481, 0.306858, -0.461373, -0.306858, 0.461373, 402, 543, -0.0821037, -0.129588, 0.0821037, 0.129588, 622, 543, 0, 0, 0, 0, 623, 287, 0, 0, 0, 0, 782, 288, 0, 0, 0, 0, 784, 350, 0, 0, 0, 0, 853, 351, 0, 0, 0, 0, 854, 385, 0, 0, 0, 0, 721, 385, 0, 0, 0, 0, 721, 479, 0, 0, 0, 0, 1136, 480, 0, 0, 0, 0, 1135, 417, 0, 0, 0, 0, 1232, 415, 0, 0, 0, 0, 1234, 543, 0, 0, 0, 0, 1506, 545, 0, 0, 0, 0, 1505, 513, 0, 0, 0, 0, 1264, 512, 0, 0, 0, 0, 1263, 384, 0, 0, 0, 0, 1104, 385, 0, 0, 0, 0, 1105, 449, 0, 0, 0, 0, 752, 449, 0, 0, 0, 0, 753, 415, 0, 0, 0, 0, 880, 415, 0, 0, 0, 0, 879, 321, 0, 0, 0, 0, 816, 320, 0, 0, 0, 0, 815, 257, 0, 0, 0, 0, 593, 257, 0, 0, 0, 0, 594, 513, 0, 0, 0, 0, 431, 513, 0, 0, 0, 0, 431, 449, 0, 0, 0, 0, 38, 449, 0, 0, 0, 0, 39, 480)
+}
+point_count = 33
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls2kf"]
+size = Vector2(38, 35)
 
 [node name="nivel 1" type="Node2D"]
 
@@ -359,38 +366,8 @@ metadata/_custom_type_script = "uid://b1qskfaxtld1o"
 position = Vector2(-75, 334.5)
 shape = SubResource("RectangleShape2D_320mp")
 
-[node name="cocheHorizontal" type="CharacterBody2D" parent="."]
-position = Vector2(177, 447)
-script = ExtResource("3_yyrpj")
-
-[node name="Sprite2D" type="Sprite2D" parent="cocheHorizontal"]
-position = Vector2(1, -16)
-texture = ExtResource("4_o46bk")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cocheHorizontal"]
-scale = Vector2(0.897623, 0.917103)
-polygon = PackedVector2Array(-10.0265, -11.9943, 8.91242, -11.9943, 8.91242, -10.9039, 14.4827, -10.9039, 14.4827, -9.81351, 15.5967, -9.81351, 15.5967, -8.72314, 16.7108, -8.72314, 16.7108, -7.63275, 17.8249, -7.63275, 17.8249, -6.54236, 18.9389, -6.54236, 18.9389, -5.45197, 20.053, -5.45197, 20.053, -3.27118, 21.167, -3.27118, 21.167, -1.09039, 28.9654, -1.09039, 28.9654, 0, 30.0794, 0, 30.0794, 1.09039, 31.1935, 1.09039, 31.1935, 2.18076, 32.3075, 2.18076, 32.3075, 9.81351, 31.1935, 9.81351, 13.3687, 9.81351, -14.4827, 9.81351, -22.2811, 9.81351, -28.9654, 9.81351, -30.0794, 9.81351, -30.0794, 8.72311, -31.1935, 8.72311, -31.1935, 2.18076, -30.0794, 2.18076, -30.0794, 1.09039, -28.9654, 1.09039, -28.9654, 0, -23.3951, 0, -23.3951, -1.09039, -22.2811, -1.09039, -22.2811, -4.36157, -21.167, -4.36157, -21.167, -6.54236, -20.053, -6.54236, -20.053, -7.63275, -18.9389, -7.63275, -18.9389, -8.72314, -17.8249, -8.72314, -17.8249, -9.81351, -15.5967, -9.81351, -15.5967, -10.9039, -10.0265, -10.9039)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="cocheHorizontal"]
-stream = ExtResource("5_yyrpj")
-
-[node name="Area2D" type="Area2D" parent="cocheHorizontal"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cocheHorizontal/Area2D"]
-scale = Vector2(1, 0.59999)
-polygon = PackedVector2Array(-9, -20.0003, 9, -20.0003, 9, -18.3336, 13, -16.667, 18, -8.3335, 20, -3.33344, 26, -3.33344, 30, 3.33337, 30, 15.0002, 22, 15.0002, -21, 15.0002, -29, 13.3336, -29, 3.33337, -26, -1.66669, -22, -1.66669, -17, -16.667, -15, -16.667, -15, -18.3336, -9, -18.3336)
-
-[node name="Area2D2" type="Area2D" parent="cocheHorizontal"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cocheHorizontal/Area2D2"]
-position = Vector2(47, 0.5)
-shape = SubResource("RectangleShape2D_ls2kf")
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="cocheHorizontal"]
-stream = ExtResource("6_fnctx")
-
 [node name="player" parent="." groups=["jugador"] instance=ExtResource("7_1t0n7")]
-position = Vector2(17, 449)
+position = Vector2(138, 450)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, 9)
@@ -407,7 +384,7 @@ text = "<"
 flat = true
 
 [node name="Bomba" type="StaticBody2D" parent="."]
-position = Vector2(390, 480)
+position = Vector2(284, 323)
 script = ExtResource("9_2n6wq")
 
 [node name="Area2D" type="Area2D" parent="Bomba"]
@@ -440,8 +417,49 @@ shape = SubResource("CircleShape2D_5jqlr")
 scale = Vector2(1.01459, 0.982609)
 stream = ExtResource("12_p7e7r")
 
-[connection signal="body_entered" from="cocheHorizontal/Area2D" to="cocheHorizontal" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="cocheHorizontal/Area2D2" to="cocheHorizontal" method="_on_area_2d_2_body_entered"]
+[node name="CircuitoCoches" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="CircuitoCoches"]
+curve = SubResource("Curve2D_yyrpj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CircuitoCoches/Path2D"]
+position = Vector2(39, 480)
+rotation = 0.00276242
+script = ExtResource("9_o46bk")
+speed = 0.04
+
+[node name="cocheHorizontal" type="CharacterBody2D" parent="CircuitoCoches/Path2D/PathFollow2D"]
+rotation = -0.0162251
+script = ExtResource("3_yyrpj")
+
+[node name="Sprite2D" type="Sprite2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal"]
+position = Vector2(1, -16)
+texture = ExtResource("4_o46bk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal"]
+scale = Vector2(0.897623, 0.917103)
+polygon = PackedVector2Array(-10.0265, -11.9943, 8.91242, -11.9943, 8.91242, -10.9039, 14.4827, -10.9039, 14.4827, -9.81351, 15.5967, -9.81351, 15.5967, -8.72314, 16.7108, -8.72314, 16.7108, -7.63275, 17.8249, -7.63275, 17.8249, -6.54236, 18.9389, -6.54236, 18.9389, -5.45197, 20.053, -5.45197, 20.053, -3.27118, 21.167, -3.27118, 21.167, -1.09039, 28.9654, -1.09039, 28.9654, 0, 30.0794, 0, 30.0794, 1.09039, 31.1935, 1.09039, 31.1935, 2.18076, 32.3075, 2.18076, 32.3075, 9.81351, 31.1935, 9.81351, 13.3687, 9.81351, -14.4827, 9.81351, -22.2811, 9.81351, -28.9654, 9.81351, -30.0794, 9.81351, -30.0794, 8.72311, -31.1935, 8.72311, -31.1935, 2.18076, -30.0794, 2.18076, -30.0794, 1.09039, -28.9654, 1.09039, -28.9654, 0, -23.3951, 0, -23.3951, -1.09039, -22.2811, -1.09039, -22.2811, -4.36157, -21.167, -4.36157, -21.167, -6.54236, -20.053, -6.54236, -20.053, -7.63275, -18.9389, -7.63275, -18.9389, -8.72314, -17.8249, -8.72314, -17.8249, -9.81351, -15.5967, -9.81351, -15.5967, -10.9039, -10.0265, -10.9039)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal"]
+stream = ExtResource("5_yyrpj")
+
+[node name="Area2D" type="Area2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D"]
+scale = Vector2(1, 0.59999)
+polygon = PackedVector2Array(-9, -20.0003, 9, -20.0003, 9, -18.3336, 13, -16.667, 18, -8.3335, 20, -3.33344, 26, -3.33344, 30, 3.33337, 30, 15.0002, 22, 15.0002, -21, 15.0002, -29, 13.3336, -29, 3.33337, -26, -1.66669, -22, -1.66669, -17, -16.667, -15, -16.667, -15, -18.3336, -9, -18.3336)
+
+[node name="Area2D2" type="Area2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D2"]
+position = Vector2(47, 0.5)
+shape = SubResource("RectangleShape2D_ls2kf")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal"]
+stream = ExtResource("6_fnctx")
+
 [connection signal="pressed" from="player/Camera2D/Button" to="player" method="_on_button_pressed"]
 [connection signal="body_entered" from="Bomba/Area2D" to="Bomba" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Bomba/Area2D2" to="Bomba" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D" to="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D2" to="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal" method="_on_area_2d_2_body_entered"]
