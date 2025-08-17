@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvqk6sn6ohhk3"]
+
+[ext_resource type="Script" uid="uid://du2r8j536srjp" path="res://perdiste.gd" id="1_greie"]
+[ext_resource type="Texture2D" uid="uid://cu0ccgxfe8ld3" path="res://asstes/perdiste.png" id="1_juf4p"]
+[ext_resource type="AudioStream" uid="uid://l5bucwgelmkj" path="res://asstes/Burbujas.wav" id="3_d53tk"]
+
+[node name="Perdiste" type="Node2D"]
+script = ExtResource("1_greie")
+main_menu_path = "res://menú.tscn"
+
+[node name="Perdiste" type="Sprite2D" parent="."]
+position = Vector2(512, 323)
+scale = Vector2(1, 1.18613)
+texture = ExtResource("1_juf4p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 360.0
+offset_top = 376.0
+offset_right = 626.0
+offset_bottom = 446.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 110
+
+[node name="menu_principal" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "MENU 
+PRINCIPAL"
+
+[node name="replay" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "REPLAY"
+
+[node name="Burbujas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d53tk")
+autoplay = true
+
+[connection signal="pressed" from="HBoxContainer/menu_principal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="HBoxContainer/replay" to="." method="_on_replay_pressed"]

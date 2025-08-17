@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxnsgiyhq6t2u"]
+
+[ext_resource type="Texture2D" uid="uid://dhrtggwv1e8v3" path="res://asstes/victoria.png" id="1_7bnjr"]
+[ext_resource type="Script" uid="uid://pqhtcxgimfah" path="res://victory.gd" id="1_qr7ta"]
+[ext_resource type="AudioStream" uid="uid://huplu4vum552" path="res://asstes/victory.wav" id="2_v31sk"]
+
+[node name="Victory" type="Node2D"]
+script = ExtResource("1_qr7ta")
+main_menu_path = "res://menú.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 324)
+scale = Vector2(1, 1.18248)
+texture = ExtResource("1_7bnjr")
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v31sk")
+autoplay = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 512.0
+offset_top = 296.0
+offset_right = 1007.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 110
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "MENU
+PRINCIPAL"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "REPLAY"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_pressed_menu"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_replay_pressed"]

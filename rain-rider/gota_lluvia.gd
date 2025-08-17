@@ -31,10 +31,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and hit == false:
-		$CollisionShape2D.disabled = true
 		sound.play()
 		body.DecreaseLive(1)
 	#queue_free()
+	$CollisionShape2D.disabled = true
 	hit = true
 	visible = false	
 	pass
