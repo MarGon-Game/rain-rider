@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceekk172cd8bn"]
+[gd_scene load_steps=5 format=3 uid="uid://ceekk172cd8bn"]
 
 [ext_resource type="Texture2D" uid="uid://ds6hotqd773ka" path="res://asstes/gota_lluvia.png" id="1_62pgi"]
 [ext_resource type="Script" uid="uid://8klcyni1od2i" path="res://gota_lluvia.gd" id="1_h6bty"]
+[ext_resource type="AudioStream" uid="uid://p1skrfeolbvu" path="res://asstes/splash-by-blaukreuz-6261.mp3" id="3_olaby"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h6bty"]
 radius = 5.0
@@ -15,5 +16,8 @@ texture = ExtResource("1_62pgi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h6bty")
+
+[node name="WaterHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_olaby")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5y6qbnwcwt5w"]
+
+[ext_resource type="PackedScene" uid="uid://dlckd617chqdo" path="res://player.tscn" id="1_0hw5l"]
+[ext_resource type="Script" uid="uid://b1qskfaxtld1o" path="res://RainSpawner.gd" id="2_nukke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnr1w"]
+size = Vector2(389, 108)
+
+[node name="Prototipo" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_0hw5l")]
+position = Vector2(169, 236)
+
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("area_2d", "collision_shape")]
+position = Vector2(589, 191)
+script = ExtResource("2_nukke")
+area_2d = NodePath("Area2D")
+collision_shape = NodePath("Area2D/CollisionShape2D")
+metadata/_custom_type_script = "uid://b1qskfaxtld1o"
+
+[node name="Area2D" type="Area2D" parent="Spawner"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D"]
+shape = SubResource("RectangleShape2D_nnr1w")
