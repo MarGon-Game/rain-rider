@@ -32,14 +32,9 @@ layout_mode = 2
 text = "MENU
 PRINCIPAL"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "REPLAY"
-
 [node name="win" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qr7ta")
 volume_db = -17.219
 autoplay = true
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_pressed_menu"]
-[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_replay_pressed"]
