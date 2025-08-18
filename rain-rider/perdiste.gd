@@ -19,8 +19,5 @@ func _on_menu_principal_pressed() -> void:
 		get_tree().change_scene_to_file(main_menu_path)
 	pass # Replace with function body.
 
-
 func _on_replay_pressed() -> void:
-	if main_game_path.is_empty() == false:
-		get_tree().change_scene_to_file(main_game_path)
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://nivel_1.tscn")
