@@ -34,7 +34,8 @@ PRINCIPAL"
 
 [node name="replay" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "REINICIAR"
+text = "VOLVER A
+ INTENTAR"
 
 [node name="MusicaPerdiste" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d53tk")
