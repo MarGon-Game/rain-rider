@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://kx1t2txndqb8"]
+[gd_scene load_steps=16 format=4 uid="uid://kx1t2txndqb8"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_1g353"]
 [ext_resource type="PackedScene" uid="uid://dlckd617chqdo" path="res://player.tscn" id="2_p4qdr"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dt3xonrhdiect" path="res://bombaActiva.wav" id="8_1vpmn"]
 [ext_resource type="Script" uid="uid://budx2h3aouen1" path="res://meta_2.gd" id="9_pnk7n"]
 [ext_resource type="Texture2D" uid="uid://h5mvf3yy3ugi" path="res://asstes/bandera 1.png" id="10_1vpmn"]
+[ext_resource type="AudioStream" uid="uid://l5bucwgelmkj" path="res://asstes/Burbujas.wav" id="11_1vpmn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1g353"]
 texture = ExtResource("1_1g353")
@@ -973,6 +974,11 @@ texture = ExtResource("10_1vpmn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meta2"]
 position = Vector2(19, 16)
 shape = SubResource("RectangleShape2D_0p6vv")
+
+[node name="Burbujas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_1vpmn")
+volume_db = -17.219
+autoplay = true
 
 [connection signal="body_entered" from="Bomba/Area2D" to="Bomba" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Bomba/Area2D2" to="Bomba" method="_on_area_2d_2_body_entered"]

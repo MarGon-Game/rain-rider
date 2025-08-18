@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bmb3hdfn57k4v"]
+[gd_scene load_steps=18 format=4 uid="uid://bmb3hdfn57k4v"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_eciuy"]
 [ext_resource type="PackedScene" uid="uid://b5y6qbnwcwt5w" path="res://prototipo.tscn" id="3_o46bk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bt5piy1u470ts" path="res://camera_2d.gd" id="8_3im4l"]
 [ext_resource type="Script" uid="uid://b0tvx7h05bufa" path="res://path_follow_2d.gd" id="9_o46bk"]
 [ext_resource type="Script" uid="uid://dvmx3hnogkuuc" path="res://meta.gd" id="10_7ce3s"]
+[ext_resource type="AudioStream" uid="uid://l5bucwgelmkj" path="res://asstes/Burbujas.wav" id="12_yyrpj"]
 [ext_resource type="Texture2D" uid="uid://h5mvf3yy3ugi" path="res://asstes/bandera 1.png" id="15_fnctx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2gv8"]
@@ -417,6 +418,11 @@ texture = ExtResource("15_fnctx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
 position = Vector2(6.83838, -3.05176e-05)
 shape = SubResource("RectangleShape2D_fnctx")
+
+[node name="Burbujas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_yyrpj")
+volume_db = -17.219
+autoplay = true
 
 [connection signal="pressed" from="player/Camera2D/Button" to="player" method="_on_button_pressed"]
 [connection signal="body_entered" from="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D" to="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal" method="_on_area_2d_body_entered"]

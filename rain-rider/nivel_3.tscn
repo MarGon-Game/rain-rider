@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bb5jf04scvevo"]
+[gd_scene load_steps=8 format=4 uid="uid://bb5jf04scvevo"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_lmouq"]
 [ext_resource type="PackedScene" uid="uid://dlckd617chqdo" path="res://player.tscn" id="2_foow7"]
 [ext_resource type="Script" uid="uid://bt5piy1u470ts" path="res://camera_2d.gd" id="3_ol0td"]
 [ext_resource type="PackedScene" uid="uid://b5y6qbnwcwt5w" path="res://prototipo.tscn" id="4_ai75a"]
+[ext_resource type="AudioStream" uid="uid://l5bucwgelmkj" path="res://asstes/Burbujas.wav" id="5_ol0td"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iukwk"]
 texture = ExtResource("1_lmouq")
@@ -338,5 +339,10 @@ flat = true
 
 [node name="Prototipo" parent="player" instance=ExtResource("4_ai75a")]
 position = Vector2(-408, -246)
+
+[node name="Burbujas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ol0td")
+volume_db = -17.219
+autoplay = true
 
 [connection signal="pressed" from="player/Camera2D/Button" to="player" method="_on_button_pressed"]

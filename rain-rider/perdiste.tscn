@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://du2r8j536srjp" path="res://perdiste.gd" id="1_greie"]
 [ext_resource type="Texture2D" uid="uid://cu0ccgxfe8ld3" path="res://asstes/perdiste.png" id="1_juf4p"]
-[ext_resource type="AudioStream" uid="uid://l5bucwgelmkj" path="res://asstes/Burbujas.wav" id="3_d53tk"]
+[ext_resource type="AudioStream" uid="uid://bw7rr1mnonmex" path="res://asstes/violin-lose-1-175615.wav" id="3_d53tk"]
 
 [node name="Perdiste" type="Node2D"]
 script = ExtResource("1_greie")
@@ -36,8 +36,9 @@ PRINCIPAL"
 layout_mode = 2
 text = "REPLAY"
 
-[node name="Burbujas" type="AudioStreamPlayer" parent="."]
+[node name="MusicaPerdiste" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d53tk")
+volume_db = -17.219
 autoplay = true
 
 [connection signal="pressed" from="HBoxContainer/menu_principal" to="." method="_on_menu_principal_pressed"]
