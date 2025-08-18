@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bmb3hdfn57k4v"]
+[gd_scene load_steps=26 format=4 uid="uid://bmb3hdfn57k4v"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_eciuy"]
 [ext_resource type="Script" uid="uid://bbsjy1iqrrlal" path="res://coche_horizontal.gd" id="3_yyrpj"]
@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://j6s1y1s1fibq" path="res://asstes/heart3.png" id="14_1t0n7"]
 [ext_resource type="Texture2D" uid="uid://bbqyxgvci0k1n" path="res://asstes/5.png" id="15_1t0n7"]
 [ext_resource type="Texture2D" uid="uid://h5mvf3yy3ugi" path="res://asstes/bandera 1.png" id="15_fnctx"]
+[ext_resource type="Texture2D" uid="uid://bwf0y1i4c6pfw" path="res://2.png" id="16_7h30g"]
+[ext_resource type="Texture2D" uid="uid://dym6fynlyh858" path="res://5.png" id="17_3rqyh"]
+[ext_resource type="Texture2D" uid="uid://b5nbcjufblrsb" path="res://3.png" id="18_p7e7r"]
+[ext_resource type="Texture2D" uid="uid://cral00lm1546j" path="res://4.png" id="19_ls2kf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2gv8"]
 texture = ExtResource("1_eciuy")
@@ -464,6 +468,36 @@ texture = ExtResource("15_fnctx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
 position = Vector2(6.83838, -3.05176e-05)
 shape = SubResource("RectangleShape2D_fnctx")
+
+[node name="Botones" type="CanvasLayer" parent="."]
+
+[node name="izquierda" type="TouchScreenButton" parent="Botones"]
+position = Vector2(36, 419)
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("18_p7e7r")
+texture_pressed = ExtResource("18_p7e7r")
+action = "LEFT"
+
+[node name="derecha" type="TouchScreenButton" parent="Botones"]
+position = Vector2(205, 419)
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("19_ls2kf")
+texture_pressed = ExtResource("19_ls2kf")
+action = "RIGHT"
+
+[node name="arriba" type="TouchScreenButton" parent="Botones"]
+position = Vector2(120, 342)
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("16_7h30g")
+texture_pressed = ExtResource("16_7h30g")
+action = "UP"
+
+[node name="abajo" type="TouchScreenButton" parent="Botones"]
+position = Vector2(119, 495)
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("17_3rqyh")
+texture_pressed = ExtResource("17_3rqyh")
+action = "DOWN"
 
 [connection signal="body_entered" from="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D" to="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D2" to="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal" method="_on_area_2d_2_body_entered"]
