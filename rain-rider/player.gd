@@ -6,9 +6,10 @@ const SPEED : float = 100.0
 const DEACCELERATION : float = 50.0
 var lives : int = 3
 var direction : Vector2 = Vector2.ZERO
-var currentState : PlayerStates = PlayerStates.ALIVE 
+var currentState : PlayerStates = PlayerStates.ALIVE
 
 @onready var animation : AnimatedSprite2D = $Animations
+@onready var ui = get_tree().current_scene.get_node("corazones")
 
 func UpdateDirection() -> void:
 	direction = Input.get_vector("LEFT","RIGHT","UP","DOWN").normalized()
@@ -30,7 +31,10 @@ func DecreaseLive(amount : int) -> void:
 	if lives <= 0:
 		lives = 0
 		currentState = PlayerStates.DEAD
-	pass
+		ui.update_hearts(lives, 3)
+		await get_tree().create_timer(0.7).timeout
+		get_tree().change_scene_to_file("res://perdiste.tscn")
+	ui.update_hearts(lives, 3)
 
 func IsDead() -> bool:
 	return lives == 0

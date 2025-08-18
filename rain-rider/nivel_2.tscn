@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://kx1t2txndqb8"]
+[gd_scene load_steps=19 format=4 uid="uid://kx1t2txndqb8"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_1g353"]
 [ext_resource type="PackedScene" uid="uid://dlckd617chqdo" path="res://player.tscn" id="2_p4qdr"]
+[ext_resource type="Texture2D" uid="uid://bbqyxgvci0k1n" path="res://asstes/5.png" id="3_5uoxw"]
 [ext_resource type="Script" uid="uid://bt5piy1u470ts" path="res://camera_2d.gd" id="3_lj8fh"]
 [ext_resource type="PackedScene" uid="uid://b5y6qbnwcwt5w" path="res://prototipo.tscn" id="4_tnojt"]
 [ext_resource type="Script" uid="uid://c4y2stomhbby2" path="res://bomba.gd" id="5_3ux85"]
@@ -11,6 +12,8 @@
 [ext_resource type="Script" uid="uid://budx2h3aouen1" path="res://meta_2.gd" id="9_pnk7n"]
 [ext_resource type="Texture2D" uid="uid://h5mvf3yy3ugi" path="res://asstes/bandera 1.png" id="10_1vpmn"]
 [ext_resource type="AudioStream" uid="uid://l5bucwgelmkj" path="res://asstes/Burbujas.wav" id="11_1vpmn"]
+[ext_resource type="Script" uid="uid://c2tjtswe8e78x" path="res://corazones.gd" id="12_5uoxw"]
+[ext_resource type="Texture2D" uid="uid://j6s1y1s1fibq" path="res://asstes/heart3.png" id="13_t0by4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1g353"]
 texture = ExtResource("1_1g353")
@@ -324,6 +327,35 @@ radius = 16.0312
 size = Vector2(63, 20)
 
 [node name="nivel 2" type="Node2D"]
+
+[node name="Burbujas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_1vpmn")
+volume_db = -17.219
+autoplay = true
+
+[node name="corazones" type="CanvasLayer" parent="."]
+script = ExtResource("12_5uoxw")
+heart_full = ExtResource("13_t0by4")
+heart_empty = ExtResource("3_5uoxw")
+
+[node name="HeartsUI" type="HBoxContainer" parent="corazones"]
+offset_left = 21.0
+offset_top = 14.0
+offset_right = 149.0
+offset_bottom = 54.0
+scale = Vector2(2.08, 2.08)
+
+[node name="TextureRect" type="TextureRect" parent="corazones/HeartsUI"]
+layout_mode = 2
+texture = ExtResource("13_t0by4")
+
+[node name="TextureRect2" type="TextureRect" parent="corazones/HeartsUI"]
+layout_mode = 2
+texture = ExtResource("13_t0by4")
+
+[node name="TextureRect3" type="TextureRect" parent="corazones/HeartsUI"]
+layout_mode = 2
+texture = ExtResource("13_t0by4")
 
 [node name="tilemaps" type="Node2D" parent="."]
 
@@ -974,11 +1006,6 @@ texture = ExtResource("10_1vpmn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Meta2"]
 position = Vector2(19, 16)
 shape = SubResource("RectangleShape2D_0p6vv")
-
-[node name="Burbujas" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_1vpmn")
-volume_db = -17.219
-autoplay = true
 
 [connection signal="body_entered" from="Bomba/Area2D" to="Bomba" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Bomba/Area2D2" to="Bomba" method="_on_area_2d_2_body_entered"]

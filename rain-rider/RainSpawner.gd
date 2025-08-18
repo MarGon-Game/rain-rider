@@ -3,7 +3,7 @@ extends Node2D
 
 @export var area_2d : Area2D = null
 @export var collision_shape : CollisionShape2D = null
-@export var frequency_spawn : float = 1.0
+@export var frequency_spawn : float = 0.05
 var lastSpawn : float = 0.0
 var enemy_scene = preload("res://gota_lluvia.tscn")
 var spawn_area_shape 
