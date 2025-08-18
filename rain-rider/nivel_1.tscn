@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bmb3hdfn57k4v"]
+[gd_scene load_steps=24 format=4 uid="uid://bmb3hdfn57k4v"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_eciuy"]
 [ext_resource type="PackedScene" uid="uid://b5y6qbnwcwt5w" path="res://prototipo.tscn" id="3_o46bk"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://d5e1bpsmiwk3" path="res://asstes/bomba.png" id="10_7h30g"]
 [ext_resource type="AudioStream" uid="uid://7t4rewih34sk" path="res://asstes/bomba-explosion.ogg" id="11_3rqyh"]
 [ext_resource type="AudioStream" uid="uid://dt3xonrhdiect" path="res://bombaActiva.wav" id="12_p7e7r"]
+[ext_resource type="Script" uid="uid://pne0g3vo53ty" path="res://pasar_nivel.gd" id="14_50uyw"]
+[ext_resource type="Texture2D" uid="uid://h5mvf3yy3ugi" path="res://asstes/bandera 1.png" id="15_fnctx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2gv8"]
 texture = ExtResource("1_eciuy")
@@ -337,6 +339,9 @@ point_count = 33
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls2kf"]
 size = Vector2(38, 35)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnctx"]
+size = Vector2(33.6768, 20)
+
 [node name="nivel 1" type="Node2D"]
 
 [node name="tilemaps" type="Node2D" parent="."]
@@ -370,6 +375,7 @@ flat = true
 position = Vector2(-408, -246)
 
 [node name="Bomba" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(284, 323)
 script = ExtResource("9_2n6wq")
 
@@ -444,8 +450,26 @@ shape = SubResource("RectangleShape2D_ls2kf")
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal"]
 stream = ExtResource("6_fnctx")
 
+[node name="Meta" type="Area2D" parent="."]
+position = Vector2(1580, 448)
+rotation = 3.14159
+scale = Vector2(1.81612, -1.6437)
+script = ExtResource("14_50uyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Meta"]
+position = Vector2(12.6643, -13.3844)
+rotation = 3.14159
+scale = Vector2(1.43162, -1.58178)
+texture = ExtResource("15_fnctx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meta"]
+position = Vector2(6.83838, -3.05176e-05)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fnctx")
+
 [connection signal="pressed" from="player/Camera2D/Button" to="player" method="_on_button_pressed"]
 [connection signal="body_entered" from="Bomba/Area2D" to="Bomba" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Bomba/Area2D2" to="Bomba" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D" to="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal/Area2D2" to="CircuitoCoches/Path2D/PathFollow2D/cocheHorizontal" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Meta" to="Meta" method="_on_body_entered"]
