@@ -346,7 +346,6 @@ volume_db = -17.219
 autoplay = true
 
 [node name="corazones" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("13_fnctx")
 heart_full = ExtResource("14_1t0n7")
 heart_empty = ExtResource("15_1t0n7")
@@ -488,7 +487,6 @@ zoom = Vector2(4, 4)
 script = ExtResource("8_3im4l")
 
 [node name="Spawner" type="Node2D" parent="player" node_paths=PackedStringArray("area_2d", "collision_shape")]
-visible = false
 position = Vector2(2, 9)
 scale = Vector2(-0.678359, 0.734464)
 script = ExtResource("13_1t0n7")
