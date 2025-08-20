@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwf0y1i4c6pfw"
-path="res://.godot/imported/2.png-3f238cfe6181f9f93f40cee36336f408.ctex"
+uid="uid://co3p3jrt04c3m"
+path="res://.godot/imported/flecha-arriba.png-72df6c819a4ac25ad2521d8e79fffff4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2.png"
-dest_files=["res://.godot/imported/2.png-3f238cfe6181f9f93f40cee36336f408.ctex"]
+source_file="res://asstes/flecha-arriba.png"
+dest_files=["res://.godot/imported/flecha-arriba.png-72df6c819a4ac25ad2521d8e79fffff4.ctex"]
 
 [params]
 

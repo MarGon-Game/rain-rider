@@ -8,31 +8,37 @@
 script = ExtResource("1_greie")
 main_menu_path = "res://menú.tscn"
 
-[node name="Perdiste" type="Sprite2D" parent="."]
-position = Vector2(512, 323)
-scale = Vector2(1, 1.18613)
+[node name="FondoPerdiste" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="FondoPerdiste"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_juf4p")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="FondoPerdiste"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 360.0
-offset_top = 376.0
-offset_right = 626.0
-offset_bottom = 446.0
+offset_left = -199.0
+offset_top = 63.0
+offset_right = 87.0
+offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.42788, 1.52)
 theme_override_constants/separation = 110
 
-[node name="menu_principal" type="Button" parent="HBoxContainer"]
+[node name="menu_principal" type="Button" parent="FondoPerdiste/HBoxContainer"]
 layout_mode = 2
 text = "MENU 
 PRINCIPAL"
 
-[node name="replay" type="Button" parent="HBoxContainer"]
+[node name="replay" type="Button" parent="FondoPerdiste/HBoxContainer"]
 layout_mode = 2
 text = "VOLVER A
  INTENTAR"
@@ -42,5 +48,5 @@ stream = ExtResource("3_d53tk")
 volume_db = -17.219
 autoplay = true
 
-[connection signal="pressed" from="HBoxContainer/menu_principal" to="." method="_on_menu_principal_pressed"]
-[connection signal="pressed" from="HBoxContainer/replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="FondoPerdiste/HBoxContainer/menu_principal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="FondoPerdiste/HBoxContainer/replay" to="." method="_on_replay_pressed"]

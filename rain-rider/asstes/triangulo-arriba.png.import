@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5nbcjufblrsb"
-path="res://.godot/imported/3.png-ab9dc1e38b41816b4ae4b69d0cb53034.ctex"
+uid="uid://pwg7v4v4f73a"
+path="res://.godot/imported/triangulo-arriba.png-ba2a7efc983afbd62f064b938d20564b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://3.png"
-dest_files=["res://.godot/imported/3.png-ab9dc1e38b41816b4ae4b69d0cb53034.ctex"]
+source_file="res://asstes/triangulo-arriba.png"
+dest_files=["res://.godot/imported/triangulo-arriba.png-ba2a7efc983afbd62f064b938d20564b.ctex"]
 
 [params]
 

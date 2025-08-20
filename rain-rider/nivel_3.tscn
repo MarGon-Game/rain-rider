@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bb5jf04scvevo"]
+[gd_scene load_steps=35 format=4 uid="uid://bb5jf04scvevo"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_lmouq"]
 [ext_resource type="Script" uid="uid://c2tjtswe8e78x" path="res://corazones.gd" id="1_sfkl1"]
@@ -20,6 +20,10 @@
 [ext_resource type="Script" uid="uid://dtvsryvvfdmmu" path="res://meta_3.gd" id="17_qo1h4"]
 [ext_resource type="Texture2D" uid="uid://h5mvf3yy3ugi" path="res://asstes/bandera 1.png" id="18_max0h"]
 [ext_resource type="Script" uid="uid://b1qskfaxtld1o" path="res://RainSpawner.gd" id="20_lswos"]
+[ext_resource type="Texture2D" uid="uid://rd4sknblskaf" path="res://asstes/triangulo-izquierda.png" id="21_se2gf"]
+[ext_resource type="Texture2D" uid="uid://di1txmpntx38" path="res://asstes/triangulo-dedrecha.png" id="22_6rang"]
+[ext_resource type="Texture2D" uid="uid://pwg7v4v4f73a" path="res://asstes/triangulo-arriba.png" id="23_taonu"]
+[ext_resource type="Texture2D" uid="uid://cofb7sn13rmkr" path="res://asstes/triangulo-abajo.png" id="24_2u0jj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iukwk"]
 texture = ExtResource("1_lmouq")
@@ -350,36 +354,16 @@ radius = 16.0312
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mbv8"]
 size = Vector2(1028, 226)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gqmbq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3prmh"]
+
 [node name="nivel 3" type="Node2D"]
 
 [node name="Burbujas" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ol0td")
 volume_db = -17.219
 autoplay = true
-
-[node name="corazones" type="CanvasLayer" parent="."]
-script = ExtResource("1_sfkl1")
-heart_full = ExtResource("2_cdqb5")
-heart_empty = ExtResource("3_turtx")
-
-[node name="HeartsUI" type="HBoxContainer" parent="corazones"]
-offset_left = 21.0
-offset_top = 14.0
-offset_right = 149.0
-offset_bottom = 54.0
-scale = Vector2(2.08, 2.08)
-
-[node name="TextureRect" type="TextureRect" parent="corazones/HeartsUI"]
-layout_mode = 2
-texture = ExtResource("2_cdqb5")
-
-[node name="TextureRect2" type="TextureRect" parent="corazones/HeartsUI"]
-layout_mode = 2
-texture = ExtResource("2_cdqb5")
-
-[node name="TextureRect3" type="TextureRect" parent="corazones/HeartsUI"]
-layout_mode = 2
-texture = ExtResource("2_cdqb5")
 
 [node name="tilemaps" type="Node2D" parent="."]
 
@@ -1318,15 +1302,6 @@ position = Vector2(0, 9)
 zoom = Vector2(4, 4)
 script = ExtResource("3_ol0td")
 
-[node name="Button" type="Button" parent="player/Camera2D"]
-offset_left = -125.0
-offset_top = -80.0
-offset_right = -109.0
-offset_bottom = -58.0
-theme_override_font_sizes/font_size = 10
-text = "<"
-flat = true
-
 [node name="Spawner" type="Node2D" parent="player" node_paths=PackedStringArray("area_2d", "collision_shape")]
 position = Vector2(2, 9)
 scale = Vector2(-0.678359, 0.734464)
@@ -1340,6 +1315,88 @@ metadata/_custom_type_script = "uid://b1qskfaxtld1o"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/Spawner/Area2D"]
 position = Vector2(-3, 0)
 shape = SubResource("RectangleShape2D_8mbv8")
+
+[node name="corazones" type="CanvasLayer" parent="."]
+script = ExtResource("1_sfkl1")
+heart_full = ExtResource("2_cdqb5")
+heart_empty = ExtResource("3_turtx")
+
+[node name="Button" type="Button" parent="corazones"]
+offset_top = -14.0
+offset_right = 16.0
+offset_bottom = 8.0
+scale = Vector2(7, 7)
+theme_override_font_sizes/font_size = 10
+text = "<"
+flat = true
+
+[node name="HeartsUI" type="HBoxContainer" parent="corazones"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -299.0
+offset_top = 21.0
+offset_right = -171.0
+offset_bottom = 61.0
+grow_horizontal = 0
+scale = Vector2(2.08, 2.08)
+
+[node name="TextureRect" type="TextureRect" parent="corazones/HeartsUI"]
+layout_mode = 2
+texture = ExtResource("2_cdqb5")
+
+[node name="TextureRect2" type="TextureRect" parent="corazones/HeartsUI"]
+layout_mode = 2
+texture = ExtResource("2_cdqb5")
+
+[node name="TextureRect3" type="TextureRect" parent="corazones/HeartsUI"]
+layout_mode = 2
+texture = ExtResource("2_cdqb5")
+
+[node name="Botones1" type="HBoxContainer" parent="corazones"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="izquierda" type="TouchScreenButton" parent="corazones/Botones1"]
+position = Vector2(63, -165)
+scale = Vector2(2.42, 2.42)
+texture_normal = ExtResource("21_se2gf")
+texture_pressed = SubResource("CompressedTexture2D_gqmbq")
+action = "LEFT"
+
+[node name="derecha" type="TouchScreenButton" parent="corazones/Botones1"]
+position = Vector2(213, -165)
+scale = Vector2(2.42, 2.42)
+texture_normal = ExtResource("22_6rang")
+texture_pressed = ExtResource("22_6rang")
+action = "RIGHT"
+
+[node name="Botones2" type="HBoxContainer" parent="corazones"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="arriba" type="TouchScreenButton" parent="corazones/Botones2"]
+position = Vector2(-264, -126)
+scale = Vector2(2.42, 2.42)
+texture_normal = ExtResource("23_taonu")
+texture_pressed = SubResource("CompressedTexture2D_3prmh")
+action = "UP"
+
+[node name="abajo" type="TouchScreenButton" parent="corazones/Botones2"]
+position = Vector2(-130, -126)
+scale = Vector2(2.42, 2.42)
+texture_normal = ExtResource("24_2u0jj")
+texture_pressed = ExtResource("24_2u0jj")
+action = "DOWN"
 
 [connection signal="body_entered" from="circuito1/Path2D/PathFollow2D_2/cocheHorizontal/Area2D" to="circuito1/Path2D/PathFollow2D_2/cocheHorizontal" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="circuito1/Path2D/PathFollow2D_2/cocheHorizontal/Area2D2" to="circuito1/Path2D/PathFollow2D_2/cocheHorizontal" method="_on_area_2d_2_body_entered"]
@@ -1396,4 +1453,4 @@ shape = SubResource("RectangleShape2D_8mbv8")
 [connection signal="body_entered" from="coche7/Area2D2" to="coche7" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="coche8/Area2D" to="coche8" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="coche8/Area2D2" to="coche8" method="_on_area_2d_2_body_entered"]
-[connection signal="pressed" from="player/Camera2D/Button" to="player" method="_on_button_pressed"]
+[connection signal="pressed" from="corazones/Button" to="player" method="_on_button_pressed"]
