@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bmb3hdfn57k4v"]
+[gd_scene load_steps=26 format=4 uid="uid://bmb3hdfn57k4v"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_eciuy"]
 [ext_resource type="Script" uid="uid://bbsjy1iqrrlal" path="res://coche_horizontal.gd" id="3_yyrpj"]
@@ -19,10 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://h5mvf3yy3ugi" path="res://asstes/bandera 1.png" id="15_fnctx"]
 [ext_resource type="Texture2D" uid="uid://di1txmpntx38" path="res://asstes/triangulo-dedrecha.png" id="15_p7e7r"]
 [ext_resource type="Texture2D" uid="uid://cofb7sn13rmkr" path="res://asstes/triangulo-abajo.png" id="16_ls2kf"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3rqyh"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7h30g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2gv8"]
 texture = ExtResource("1_eciuy")
@@ -386,15 +382,15 @@ anchor_bottom = 1.0
 grow_vertical = 0
 
 [node name="izquierda" type="TouchScreenButton" parent="corazones/Botones1"]
-position = Vector2(63, -165)
-scale = Vector2(2.42, 2.42)
+position = Vector2(41, -255)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("14_3rqyh")
-texture_pressed = SubResource("CompressedTexture2D_3rqyh")
+texture_pressed = ExtResource("14_3rqyh")
 action = "LEFT"
 
 [node name="derecha" type="TouchScreenButton" parent="corazones/Botones1"]
-position = Vector2(213, -165)
-scale = Vector2(2.42, 2.42)
+position = Vector2(311, -255)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("15_p7e7r")
 texture_pressed = ExtResource("15_p7e7r")
 action = "RIGHT"
@@ -411,15 +407,15 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="arriba" type="TouchScreenButton" parent="corazones/Botones2"]
-position = Vector2(-264, -126)
-scale = Vector2(2.42, 2.42)
+position = Vector2(-219, -228)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("13_7h30g")
-texture_pressed = SubResource("CompressedTexture2D_7h30g")
+texture_pressed = ExtResource("13_7h30g")
 action = "UP"
 
 [node name="abajo" type="TouchScreenButton" parent="corazones/Botones2"]
-position = Vector2(-130, -126)
-scale = Vector2(2.42, 2.42)
+position = Vector2(-446, -228)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("16_ls2kf")
 texture_pressed = ExtResource("16_ls2kf")
 action = "DOWN"

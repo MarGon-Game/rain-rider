@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bb5jf04scvevo"]
+[gd_scene load_steps=33 format=4 uid="uid://bb5jf04scvevo"]
 
 [ext_resource type="Texture2D" uid="uid://ds0aq1o4wgf4p" path="res://asstes/tileset limite.png" id="1_lmouq"]
 [ext_resource type="Script" uid="uid://c2tjtswe8e78x" path="res://corazones.gd" id="1_sfkl1"]
@@ -353,10 +353,6 @@ radius = 16.0312
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mbv8"]
 size = Vector2(1028, 226)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gqmbq"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3prmh"]
 
 [node name="nivel 3" type="Node2D"]
 
@@ -1360,15 +1356,15 @@ anchor_bottom = 1.0
 grow_vertical = 0
 
 [node name="izquierda" type="TouchScreenButton" parent="corazones/Botones1"]
-position = Vector2(63, -165)
-scale = Vector2(2.42, 2.42)
+position = Vector2(41, -255)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("21_se2gf")
-texture_pressed = SubResource("CompressedTexture2D_gqmbq")
+texture_pressed = ExtResource("21_se2gf")
 action = "LEFT"
 
 [node name="derecha" type="TouchScreenButton" parent="corazones/Botones1"]
-position = Vector2(213, -165)
-scale = Vector2(2.42, 2.42)
+position = Vector2(311, -255)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("22_6rang")
 texture_pressed = ExtResource("22_6rang")
 action = "RIGHT"
@@ -1385,15 +1381,15 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="arriba" type="TouchScreenButton" parent="corazones/Botones2"]
-position = Vector2(-264, -126)
-scale = Vector2(2.42, 2.42)
+position = Vector2(-219, -228)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("23_taonu")
-texture_pressed = SubResource("CompressedTexture2D_3prmh")
+texture_pressed = ExtResource("23_taonu")
 action = "UP"
 
 [node name="abajo" type="TouchScreenButton" parent="corazones/Botones2"]
-position = Vector2(-130, -126)
-scale = Vector2(2.42, 2.42)
+position = Vector2(-446, -228)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("24_2u0jj")
 texture_pressed = ExtResource("24_2u0jj")
 action = "DOWN"
